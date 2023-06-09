@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html> 
+
+<head>
+    <title>javascript validation</title>
+    <script>
+        function validateForm() {
+
+            var fname = document.forms["myform"]["fname"].value;
+            var lname = document.forms["myform"]["lname"].value;
+            var email = document.forms["myform"]["email"].value;
+            var phone = document.forms["myform"]["phone"].value;
+            var letters = /^[A-Za-z]+$/;
+            var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+
+
+            if (fname == "") {
+
+                    document.getElementById("div1").innerHTML = "plese enter the name";
+                    document.getElementById("div1").style.color = "red";
+                    return false;
+                }
+                 else {
+                    document.getElementById("div1").innerHTML = "";
+                }
+          if(!fname.match(letters)) {
+                  document.getElementById("div1").innerHTML = "plese enter albhabetes only";  
+                  return false;
+              }
+      
+
+                if (lname == "") {
+                    document.getElementById("div2").innerHTML = "plese enter the lname";
+                    document.getElementById("div2").style.color = "red";
+                    return false;
+
+                } else {
+                    document.getElementById("div2").innerHTML = "";
+                }
+             if(!lname.match(letters)) {
+                  document.getElementById("div2").innerHTML = "plese enter albhabetes only";  
+                  return false;
+              }
+
+                if (email == "") {
+                    document.getElementById("div3").innerHTML = "plese enter the email";
+                    document.getElementById("div3").style.color = "red";
+                    return false;
+                } else {
+                    document.getElementById("div3").innerHTML = "";
+                }
+
+                if (phone == "") {
+                    document.getElementById("div4").innerHTML = "plese enter the phone";
+                    document.getElementById("div4").style.color = "red";
+                    return false;
+                } else {
+                    document.getElementById("div4").innerHTML = "";
+                }
+               if(!phone.match(phoneno)) {
+                  document.getElementById("div4").innerHTML = "plese enter numbers only";  
+                  return false;
+              }
+
+                return true;
+            }
+    </script>
+</head>
+
+<body>
+    <form name="myform" onsubmit="return validateForm()" ;>
+        name:<input type="text" name="fname">
+        <div id="div1"></div><br><br>
+        last name:<input type="text" name="lname">
+        <div id="div2"></div><br><br>
+        email:<input type="email" name="email">
+        <div id="div3"></div><br><br>
+        phone:<input type="phone" name="phone">
+        <div id="div4"></div><br><br>
+
+        <input type="submit" name="submit">
+
+    </form>
+
+</body>
+
+</html>
